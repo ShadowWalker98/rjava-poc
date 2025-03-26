@@ -1,0 +1,8 @@
+install.packages("rJava")
+library("rJava")
+.jinit()
+.jaddClassPath("./com/satyajit/demo/")
+HelloWorld <- J("HelloWorld")
+hello <- .jnew(HelloWorld)
+arr <- .jarray(as.integer(c(3, 5, 2, 1, 6)))
+.jcall(hello, "V", "print", arr)
